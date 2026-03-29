@@ -14,6 +14,8 @@ import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.client.ConfigScreenHandler;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
@@ -38,6 +40,13 @@ public class Atmosfera {
             IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
             modEventBus.addListener(this::registerReloadListeners);
             modEventBus.addListener(this::addPackFinders);
+
+            ModLoadingContext.get().registerExtensionPoint(
+                    ConfigScreenHandler.ConfigScreenFactory.class,
+                    () -> new ConfigScreenHandler.ConfigScreenFactory(
+                            (mc, parent) -> com.leclowndu93150.atmosfera.client.AtmosferaConfigScreen.create(parent)
+                    )
+            );
 
             EnvironmentContext.init();
             log("Finished initialization.");

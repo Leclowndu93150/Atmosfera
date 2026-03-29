@@ -130,11 +130,31 @@ public class AtmosferaConfig {
         return printDebugMessages;
     }
 
+    public static void setPrintDebugMessages(boolean value) {
+        printDebugMessages = value;
+    }
+
     public static boolean enableCustomMusic() {
         return enableCustomMusic;
     }
 
+    public static void setEnableCustomMusic(boolean value) {
+        enableCustomMusic = value;
+    }
+
     public static float customMusicWeightScale() {
         return customMusicWeightScale;
+    }
+
+    public static void setCustomMusicWeightScale(float value) {
+        customMusicWeightScale = value;
+    }
+
+    public static TreeMap<ResourceLocation, Integer> getVolumeModifiers() {
+        return VOLUME_MODIFIERS;
+    }
+
+    public static TreeMap<ResourceLocation, Boolean> getSubtitleModifiers() {
+        return SUBTITLE_MODIFIERS;
     }
 }
