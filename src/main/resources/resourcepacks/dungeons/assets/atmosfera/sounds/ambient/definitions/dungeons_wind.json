@@ -1,0 +1,23 @@
+{
+  "sound": "atmosfera:dungeons_wind",
+  "default_volume": 100,
+  "default_subtitle": true,
+  "shape": "sphere",
+  "size": "small",
+  "modifiers": [
+    {
+      "type": "percent_block",
+      "blocks": [
+        "minecraft:air"
+      ],
+      "range": [
+        0.6,
+        0.7
+      ]
+    },
+    {
+      "type": "sky_visibility",
+      "min": 0.5
+    }
+  ]
+}
