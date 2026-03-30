@@ -9,7 +9,7 @@
       "type": "percent_biome",
       "min": 0.1,
       "biomes": [
-        "minecraft:snowy_tundra",
+        "minecraft:snowy_plains",
         "byg:lush_tundra"
       ]
     },

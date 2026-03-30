@@ -9,7 +9,7 @@
       "type": "percent_block",
       "blocks": [
         "minecraft:grass",
-        "minecraft:short_grass",
+        "minecraft:grass",
         "minecraft:tall_grass",
         "minecraft:sugar_cane",
         "minecraft:wheat",

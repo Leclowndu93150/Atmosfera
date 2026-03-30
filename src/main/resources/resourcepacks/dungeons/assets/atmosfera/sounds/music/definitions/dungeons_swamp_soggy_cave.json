@@ -8,10 +8,9 @@
       "type": "percent_biome",
       "min": 0.75,
       "biomes": [
-        "#c:is_swamp",
+        "#forge:is_swamp",
         "#swamp",
         "minecraft:swamp",
-        "minecraft:swamp_hills",
         "minecraft:mangrove_swamp",
         "byg:bayou",
         "byg:bog",

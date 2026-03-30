@@ -9,16 +9,15 @@
       "type": "percent_biome",
       "min": 0.1,
       "biomes": [
-        "#c:is_plains",
+        "#forge:is_plains",
         "#plains",
-        "#c:is_savanna",
+        "#forge:is_savanna",
         "#is_savanna",
         "#savanna",
         "minecraft:plains",
         "minecraft:savanna",
         "minecraft:savanna_plateau",
-        "minecraft:shattered_savanna",
-        "minecraft:shattered_savanna_plateau",
+        "minecraft:windswept_savanna",
         "minecraft:sunflower_plains",
         "byg:allium_fields",
         "byg:amaranth_fields",
@@ -107,7 +106,7 @@
         "vanillaplusbiomes:rocky_plains",
         "vanillaplusbiomes:savanna_scrub",
         "vanillaplusbiomes:savanna_thicket",
-        "minecraft:snowy_tundra",
+        "minecraft:snowy_plains",
         "byg:lush_tundra"
       ]
     },

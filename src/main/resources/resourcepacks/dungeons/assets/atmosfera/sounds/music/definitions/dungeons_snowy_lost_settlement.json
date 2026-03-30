@@ -8,12 +8,10 @@
       "type": "percent_biome",
       "min": 0.75,
       "biomes": [
-        "#c:is_taiga",
+        "#forge:is_taiga",
         "#is_taiga",
         "#taiga",
         "minecraft:snowy_taiga",
-        "minecraft:snowy_taiga_hills",
-        "minecraft:snowy_taiga_mountains",
         "byg:northern_forest",
         "byg:snowy_blue_taiga",
         "byg:snowy_blue_giant_taiga",
@@ -39,8 +37,7 @@
         "vanillaplusbiomes:snowy_taiga_edge",
         "vanillaplusbiomes:tall_snowy_pine_taiga",
         "vanillaplusbiomes:tall_snowy_taiga",
-
-        "minecraft:snowy_tundra",
+        "minecraft:snowy_plains",
         "byg:lush_tundra"
       ]
     }
