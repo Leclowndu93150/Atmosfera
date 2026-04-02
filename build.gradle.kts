@@ -54,14 +54,15 @@ extensions.configure<dev.prism.gradle.dsl.PrismExtension>("prism") {
         }
     }
 
-//    publishing {
-//        curseforge {
-//            token = System.getenv("CURSEFORGE_TOKEN") ?: ""
-//            projectId = ""
-//        }
+    publishing {
+        type = dev.prism.gradle.dsl.ReleaseType.STABLE
+        curseforge {
+            accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+            projectId = "1499605"
+        }
 //        modrinth {
-//            token = System.getenv("MODRINTH_TOKEN") ?: ""
+//            accessToken = providers.environmentVariable("MODRINTH_TOKEN")
 //            projectId = ""
 //        }
-//    }
+    }
 }
