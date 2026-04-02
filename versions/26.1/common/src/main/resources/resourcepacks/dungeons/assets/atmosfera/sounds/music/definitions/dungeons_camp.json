@@ -1,0 +1,12 @@
+{
+  "sound": "atmosfera:dungeons_camp",
+  "default_volume": 100,
+  "shape": "lower_hemisphere",
+  "size": "small",
+  "modifiers": [
+    {
+      "type": "dimension",
+      "id": "minecraft:overworld"
+    }
+  ]
+}

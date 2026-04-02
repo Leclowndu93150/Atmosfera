@@ -1,0 +1,36 @@
+package com.leclowndu93150.atmosfera.client.sound;
+
+import com.leclowndu93150.atmosfera.client.sound.modifiers.AtmosphericSoundModifier;
+import com.leclowndu93150.atmosfera.client.sound.modifiers.implementations.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public final class AtmosphericSoundModifierRegistry {
+    private static final Map<String, AtmosphericSoundModifier.FactoryDeserializer> FACTORIES = new HashMap<>();
+
+    private AtmosphericSoundModifierRegistry() {}
+
+    public static void register(AtmosphericSoundModifier.FactoryDeserializer factory, String type) {
+        FACTORIES.putIfAbsent(type, factory);
+    }
+
+    public static AtmosphericSoundModifier.FactoryDeserializer get(String type) {
+        return FACTORIES.get(type);
+    }
+
+    static {
+        register(SimpleBoundedCondition::altitude, "altitude");
+        register(SimpleBoundedCondition::elevation, "elevation");
+        register(SimpleBoundedCondition::skyVisibility, "sky_visibility");
+        register(SimpleBooleanCondition::isDaytime, "is_daytime");
+        register(SimpleBooleanCondition::isRainy, "is_rainy");
+        register(SimpleBooleanCondition::isStormy, "is_stormy");
+        register(PercentBlockModifier::create, "percent_block");
+        register(PercentBiomeModifier::create, "percent_biome");
+        register(RidingCondition::create, "riding");
+        register(DimensionModifier::create, "dimension");
+        register(DimensionModifier::create, "dimension_effects");
+        register(BossBarCondition::create, "boss_bar");
+    }
+}
