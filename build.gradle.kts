@@ -1,9 +1,11 @@
-apply(plugin = "dev.prism")
+plugins {
+    id("dev.prism")
+}
 
 group = "com.leclowndu93150"
 version = "1.0.0"
 
-extensions.configure<dev.prism.gradle.dsl.PrismExtension>("prism") {
+prism {
     metadata {
         modId = "atmosfera"
         name = "Atmosfera"
@@ -55,7 +57,7 @@ extensions.configure<dev.prism.gradle.dsl.PrismExtension>("prism") {
     }
 
     publishing {
-        type = dev.prism.gradle.dsl.ReleaseType.STABLE
+        type = STABLE
         curseforge {
             accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
             projectId = "1499605"
