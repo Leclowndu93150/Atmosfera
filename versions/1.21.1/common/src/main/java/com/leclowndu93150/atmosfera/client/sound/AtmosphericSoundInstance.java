@@ -12,6 +12,7 @@ public class AtmosphericSoundInstance extends AbstractSoundInstance implements T
     private final AtmosphericSound definition;
 
     private int volumeTransitionTimer = 0;
+    private float lastTargetVolume = 0;
     private boolean done;
 
     public AtmosphericSoundInstance(AtmosphericSound definition, float volume) {
@@ -42,17 +43,19 @@ public class AtmosphericSoundInstance extends AbstractSoundInstance implements T
             this.y = client.player.getY();
             this.z = client.player.getZ();
 
-            float volume = this.definition.getVolume(client.level);
-            if (volume >= this.volume + 0.0125) {
+            float targetVolume = this.definition.getVolume(client.level);
+
+            if (targetVolume >= this.lastTargetVolume + 0.0125) {
                 ++this.volumeTransitionTimer;
-            } else if (volume < this.volume - 0.0125 || this.volumeTransitionTimer == 0) {
+            } else if (targetVolume < this.lastTargetVolume - 0.0125 || this.volumeTransitionTimer == 0) {
                 this.volumeTransitionTimer -= 1;
             }
 
+            this.lastTargetVolume = targetVolume;
             this.volumeTransitionTimer = Math.min(this.volumeTransitionTimer, 60);
-            this.volume = Mth.clamp(this.volumeTransitionTimer / 60.0F, 0.0F, 1.0F);
+            this.volume = Mth.clamp(targetVolume * (this.volumeTransitionTimer / 60.0F), 0.0F, 1.0F);
 
-            Atmosfera.debug("id: {} - volume: {} - this.volume: {} - volumeTransitionTimer: " + this.definition.id(), volume, this.volume, this.volumeTransitionTimer);
+            Atmosfera.debug("id: {} - volume: {} - this.volume: {} - volumeTransitionTimer: " + this.definition.id(), targetVolume, this.volume, this.volumeTransitionTimer);
         } else {
             this.markDone();
         }

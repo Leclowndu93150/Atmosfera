@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.leclowndu93150"
-version = "1.0.0"
+version = "1.0.1"
 
 prism {
     metadata {
@@ -22,7 +22,7 @@ prism {
         }
         forge {
             loaderVersion = "47.4.18"
-            loaderVersionRange = "[47,)"
+            loaderVersionRange = "[4,)"
             dependencies {
                 modImplementation("curse.maven:yacl-667299:6336646")
             }
@@ -58,6 +58,9 @@ prism {
 
     publishing {
         type = STABLE
+
+        changelog = "fix issue with sound volume going up at 100% unexpectedly"
+
         curseforge {
             accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
             projectId = "1499605"
