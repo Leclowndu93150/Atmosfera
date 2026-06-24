@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.leclowndu93150"
-version = "1.0.1"
+version = "1.0.3"
 
 prism {
     metadata {
@@ -43,7 +43,7 @@ prism {
     }
 
     version("26.1") {
-        minecraftVersions("26.1", "26.1.1")
+        minecraftVersions("26.1", "26.1.1", "26.2")
         common {
             modImplementation("curse.maven:yacl-667299:7851608")
         }
@@ -59,7 +59,7 @@ prism {
     publishing {
         type = STABLE
 
-        changelog = "fix issue with sound volume going up at 100% unexpectedly"
+        changelog = "fix crash"
 
         curseforge {
             accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")

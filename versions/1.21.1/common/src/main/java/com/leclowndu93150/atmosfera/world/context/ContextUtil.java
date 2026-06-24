@@ -1,7 +1,5 @@
 package com.leclowndu93150.atmosfera.world.context;
 
-import net.minecraft.core.BlockPos;
-
 import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashSet;
@@ -28,13 +26,11 @@ public final class ContextUtil {
         Map<EnvironmentContext.Shape, Map<EnvironmentContext.Size, Collection<byte[]>>> offsets = new EnumMap<>(EnvironmentContext.Shape.class);
 
         for (var size : EnvironmentContext.Size.values()) {
-            var origin = new BlockPos(0, 0, 0);
-
             byte radius = size.radius;
             for (byte x = 0; x <= radius + 1; ++x) {
                 for (byte y = (byte) -radius; y <= 0; ++y) {
                     for (byte z = 0; z <= radius + 1; ++z) {
-                        double distance = origin.distSqr(new BlockPos(x, y, z));
+                        double distance = x * x + y * y + z * z;
                         if ((x + y + z) % 3 == 0 && distance <= (radius + 1) * (radius + 1)) {
                             offsets.computeIfAbsent(EnvironmentContext.Shape.LOWER_HEMISPHERE, key -> new EnumMap<>(EnvironmentContext.Size.class)).computeIfAbsent(size, key -> new HashSet<>()).add(
                                     new byte[] {x, y, z}
